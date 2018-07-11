@@ -22,10 +22,13 @@ export default class Comment extends Component{
     componentWillUnmount(){
         clearInterval(this._timer)
     }
+    componentDidMount(){
+        
+    }
     _updateTimeString(){
         const comments = this.props.comment;
         const duration = (+Date.now()-comments.createdTime)/1000;
-        this.setState({
+        this.setState({ 
             timeString:duration>60
             ?`${Math.round(duration/60)}分钟前`
             :`${Math.round(Math.max(duration,1))}秒前`
