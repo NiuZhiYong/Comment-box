@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Comment from './Comment'
+import Comment from './components/Comment'
 
 export default class CommentList extends Component{
     constructor(){
@@ -14,10 +14,10 @@ export default class CommentList extends Component{
         }
     }
     render(){
-        const commons = this.props.commons
+        const comments = this.props.comments
         return (
             <div>
-                {commons.map((item,i) => 
+                {comments.map((item,i) => 
                     <Comment comment = {item} key = {i} index = {i} onDelete={this.handleDelete.bind(this)}/>    
                 )}
             </div>

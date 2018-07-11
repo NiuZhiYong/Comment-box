@@ -2,10 +2,19 @@ import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 
 export default class CommentInput extends Component{
+    static propTypes = {
+        username:PropTypes.string,
+        onUsernameBlur:PropTypes.func,
+        onSubmit:PropTypes.func
+
+    }
+    static defaultProps = {
+        username:''
+    }
     constructor(){
         super();
         this.state = {
-            username:'',
+            username:props.username,
             content:''
         }
     }
@@ -20,7 +29,9 @@ export default class CommentInput extends Component{
         })
     }
     handleUsernameBlur(e){
-        this._saveUsername(e.target.value)
+        if(this.props.onUsernameBlur){
+            this.props.onUsernameBlur(e.target.value)
+        }
     }
     handleSubmit(){
         const {username,content} = this.state;
@@ -34,20 +45,6 @@ export default class CommentInput extends Component{
         this.setState({
             content:''
         })
-    }
-    _saveUsername(username){
-        localStorage.setItem('username',username)
-    }
-    _loadUsername(){
-        const username = localStorage.getItem('username');
-        if(username){
-            this.setState({
-                username:username
-            })
-        }  
-    }
-    componentWillMount(){
-        this._loadUsername()
     }
     componentDidMount(){
         this.textarea.focus()
