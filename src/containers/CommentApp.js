@@ -4,7 +4,8 @@ import CommentList from './CommentList';
 
 export default class CommentApp extends Component{
     render(){
-        return (
+        alert('rem and flex');
+        return (            
             <div className="wrapper">
                 <CommentInput />
                 <CommentList />
@@ -12,3 +13,5 @@ export default class CommentApp extends Component{
         )
     }
 }
+
+
