@@ -29,10 +29,10 @@ class CommentInputContainer extends Component{
     _saveUsername(username){
         localStorage.setItem('username',username)
     }
-    handleSubmit(comments){
-        if(!comments) return ;
-        if(!comments.username) return alert("请输入用户名")
-        if(!comments.content) return alert("请输入评论内容")
+    handleSubmit(comment){
+        if(!comment) return ;
+        if(!comment.username) return alert("请输入用户名")
+        if(!comment.content) return alert("请输入评论内容")
         const {comments} = this.props;
         const newComments = [...comments,comment];
         localStorage.setItem('comments',JSON.stringify(newComments));

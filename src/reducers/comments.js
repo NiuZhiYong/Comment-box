@@ -23,7 +23,7 @@ export default function(state,action){
             //
             return {
                 comments:[...state.comments.slice(0,action.commentIndex),
-                          ...state,comments.slice(action.commentIndex+1)]
+                          ...state.comments.slice(action.commentIndex+1)]
             }    
         default:
             return state;    

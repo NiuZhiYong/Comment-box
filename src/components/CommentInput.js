@@ -11,8 +11,8 @@ export default class CommentInput extends Component{
     static defaultProps = {
         username:''
     }
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             username:props.username,
             content:''

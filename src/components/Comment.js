@@ -1,6 +1,10 @@
 import React,{Component} from 'react';
+import PropTypes from 'prop-types'
 
 export default class Comment extends Component{
+    static propTypes = {
+        comment:PropTypes.object.isRequired
+    }
     constructor(){
         super()
         this.state = {
@@ -22,12 +26,10 @@ export default class Comment extends Component{
     componentWillUnmount(){
         clearInterval(this._timer)
     }
-    componentDidMount(){
-        
-    }
     _updateTimeString(){
-        const comments = this.props.comment;
-        const duration = (+Date.now()-comments.createdTime)/1000;
+        const item = this.props.comment;
+        
+        const duration = (+Date.now()-item.createdTime)/1000;
         this.setState({ 
             timeString:duration>60
             ?`${Math.round(duration/60)}分钟前`
