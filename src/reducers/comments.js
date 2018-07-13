@@ -10,17 +10,17 @@ export default function(state,action){
     }
     switch(action.type){
         case INIT_COMMENTS:
-            //
+            //初始化评论
             return {
                 comments:action.comments
             }
         case ADD_COMMENTS:
-            //
+            //添加评论
             return {
                 comments:[...state.comments,action.comment]
             }    
         case DELETE_COMMENTS:
-            //
+            //删除评论
             return {
                 comments:[...state.comments.slice(0,action.commentIndex),
                           ...state.comments.slice(action.commentIndex+1)]
