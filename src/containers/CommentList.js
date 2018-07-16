@@ -24,7 +24,6 @@ class CommentListContainer extends Component {
             ...comments.slice(0,index),
             ...comments.slice(index+1)
         ]
-        console.log(newComments)
         localStorage.setItem('comments',JSON.stringify(newComments))
         if(this.props.onDeleteComment){
             this.props.onDeleteComment(index)
